@@ -6,20 +6,29 @@
 #    By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 16:45:59 by kyacini           #+#    #+#              #
-#    Updated: 2022/05/03 16:59:24 by kyacini          ###   ########.fr        #
+#    Updated: 2022/05/03 21:40:28 by kyacini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-all	:	libft.a
+SRC = ${wildcard *.c}
 
-libft.a	:	%.o
-	ar rc libft.a *.o
+NAME = libft.a
+
+OBJS = ${SRC:.c=.o}
+
+all	:	${NAME}
 
 %.o : %.c
-	gcc *.o -c *.c -Wall -Werror -Wextra
+	gcc -o $@ -c $< -Wall -Werror -Wextra
+
+libft.a	:	${OBJS}
+	ar rc libft.a $@
 
 clean	:
-	rm -r *.o
-
-fclean	:	
 	rm -rf *.o
+
+fclean	:	clean
+	rm -rf ${NAME}
+	
+re:	fclean all
+
