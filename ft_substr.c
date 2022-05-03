@@ -6,7 +6,7 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 14:49:08 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/03 14:51:58 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/03 21:41:32 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new_chain;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	while (s[start + i])
