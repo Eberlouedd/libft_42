@@ -6,7 +6,7 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 15:30:07 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/02 16:23:52 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/03 23:51:36 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *string, int searchedChar)
 	while (i >= 0)
 	{
 		if (string[i] == searchedChar)
-			return (string + i);
+			return ((char *)string + i);
 		i--;
 	}
 	return (NULL);

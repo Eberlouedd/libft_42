@@ -6,7 +6,7 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:40:33 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/02 18:18:11 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/03 23:55:01 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
 {
-	int					i;
+	size_t				i;
 	const unsigned char	*new;
 
 	i = 0;

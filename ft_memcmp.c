@@ -6,7 +6,7 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 18:43:40 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/02 18:47:23 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/03 23:50:25 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 int	ft_memcmp(const void *pointer1, const void *pointer2, size_t size)
 {
-	int	i;
+	size_t				i;
+	const unsigned char	*new;
+	const unsigned char	*renew;
 
+	new = pointer1;
+	renew = pointer2;
 	i = 0;
 	while (i < size)
 	{
-		if (pointer1[i] != pointer2[i])
-			return (pointer1[i] - pointer2[i])
+		if (new[i] != renew[i])
+			return (new[i] - renew[i]);
 	}
 	return (0);
 }

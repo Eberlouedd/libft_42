@@ -6,7 +6,7 @@
 #    By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/03 16:45:59 by kyacini           #+#    #+#              #
-#    Updated: 2022/05/03 21:40:28 by kyacini          ###   ########.fr        #
+#    Updated: 2022/05/04 00:05:02 by kyacini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ all	:	${NAME}
 	gcc -o $@ -c $< -Wall -Werror -Wextra
 
 libft.a	:	${OBJS}
-	ar rc libft.a $@
+	ar rc ${NAME} ${OBJS}
 
 clean	:
 	rm -rf *.o
@@ -31,4 +31,10 @@ fclean	:	clean
 	rm -rf ${NAME}
 	
 re:	fclean all
+
+so:
+	$(CC) -fPIC $(CFLAGS) $(SRC)
+	gcc -shared -o libft.so $(OBJ)
+
+
 

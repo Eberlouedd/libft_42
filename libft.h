@@ -6,12 +6,13 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:59:58 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/03 17:12:09 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/03 22:33:59 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stddef.h>
 
 int				ft_atoi(const char *nptr);
 void			bzero(void *s, size_t n);

@@ -6,11 +6,11 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 16:06:15 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/02 14:45:34 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/03 21:37:25 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c < 97 || c > 122)
 		c -= 32;

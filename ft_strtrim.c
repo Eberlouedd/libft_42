@@ -6,13 +6,14 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:31:03 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/03 16:09:18 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/04 00:07:26 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-void	ft_init(int *i, int *j, int *c, int *buff)
+void	ft_inite(int *i, int *j, int *c, int *buff)
 {
 	*buff = *i;
 	*j = 0;
@@ -25,7 +26,7 @@ int	ft_strstr(const char *str, const char *to_find, int i)
 	int	c;
 	int	buff;
 
-	ft_init(&i, &j, &c, &buff);
+	ft_inite(&i, &j, &c, &buff);
 	while (str[i] || str[0] == '\0')
 	{
 		if (ft_strlen(to_find) > ft_strlen(str) - i)
@@ -61,5 +62,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 		nb_supp += ft_strlen(set);
 	new_chain = malloc(ft_strlen(s1) - nb_supp + 1);
 	new_chain[ft_strlen(s1) - nb_supp] = '\0';
-	
+	return (new_chain);
 }

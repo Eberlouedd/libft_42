@@ -6,9 +6,11 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:15:44 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/02 14:59:21 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/03 23:52:22 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {

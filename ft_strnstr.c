@@ -6,13 +6,14 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:30:37 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/02 15:18:13 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/03 22:33:37 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
-void	ft_init(int *a, int *b, int *d)
+void	ft_init(int *a, int *b, size_t *d)
 {
 	*a = 0;
 	*b = 0;
@@ -21,9 +22,9 @@ void	ft_init(int *a, int *b, int *d)
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	j;
-	int	c;
+	int		i;
+	int		j;
+	size_t	c;
 
 	ft_init(&i, &j, &c);
 	while (big[i] || big[0] == '\0')
@@ -40,7 +41,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		if (c == len - 1)
 		{
-			return (big + i);
+			return ((char *)big + i);
 		}
 		i++;
 		c = 0;
