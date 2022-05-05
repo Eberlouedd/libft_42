@@ -6,9 +6,12 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 20:38:10 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/03 14:24:14 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/04 16:57:50 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
+#include <stdio.h>
 
 int	ft_compte(const char *str, int i)
 {
@@ -37,19 +40,20 @@ int	ft_atoi(const char *nptr)
 	int		nb;
 	char	signe;
 
-	i = -1;
+	i = 0;
 	signe = '+';
 	nb = 0;
 	while (nptr[i] < '0' || nptr[i] > '9')
 	{
-		i++;
 		if (nptr[i] == '-' || nptr[i] == '+')
 		{
 			signe = nptr[i];
+			i++;
 			break ;
 		}
-		else if ((nptr[i] < 9 || nptr[i] > 13) && nptr[i] == 32)
+		else if ((nptr[i] < 9 || nptr[i] > 13) && nptr[i] != 32)
 			return (0);
+		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{

@@ -6,13 +6,13 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:04:21 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/03 23:56:35 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/04 15:37:06 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t			i;
 	unsigned char	*new;
