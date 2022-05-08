@@ -6,61 +6,88 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:31:03 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/04 00:07:26 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/09 00:25:22 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
-void	ft_inite(int *i, int *j, int *c, int *buff)
+int	debut(const char *chaine, const char *base)
 {
-	*buff = *i;
-	*j = 0;
-	*c = 0;
-}
-
-int	ft_strstr(const char *str, const char *to_find, int i)
-{
+	int	i;
 	int	j;
-	int	c;
-	int	buff;
 
-	ft_inite(&i, &j, &c, &buff);
-	while (str[i] || str[0] == '\0')
+	i = 0;
+	j = 0;
+	while (chaine[i])
 	{
-		if (ft_strlen(to_find) > ft_strlen(str) - i)
+		while (base[j])
 		{
-			return (0);
-		}
-		j = i;
-		while (str[j] == to_find[c] && str[j] && to_find[c])
-		{
-			c++;
+			if (base[j] == chaine[i])
+				break ;
 			j++;
 		}
-		if (c == ft_strlen(to_find))
-		{
-			return (i == buff);
-		}
+		if (j == ft_strlen(base))
+			break ;
+		j = 0;
 		i++;
-		c = 0;
 	}
-	return (0);
+	return (i);
 }
 
+int	fin(const char *chaine, const char *base)
+{
+	int	inter;
+	int	i;
+	int	j;
+	int	mem;
+
+	i = 0;
+	j = 0;
+	inter = 0;
+	while (chaine[i])
+	{
+		while (base[j])
+		{
+			if (chaine[i] == base[j] && !inter)
+			{
+				mem = i;
+				inter = 1;
+			}
+			j++;
+		}
+		if (j == ft_strlen(base))
+			inter = 0;
+		i++;
+		j = 0;
+	}
+	return (mem);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	nb_supp;
-	char	*new_chain;
+	int		supp_compte;
+	char	*new_chaine;
+	int		i;
+	int		j;
 
-	nb_supp = 0;
-	if(ft_strstr(s1, set, 0))
-		nb_supp += ft_strlen(set);
-	if(ft_strstr(s1, set, ft_strlen(s1) - ft_strlen(set) - 1))
-		nb_supp += ft_strlen(set);
-	new_chain = malloc(ft_strlen(s1) - nb_supp + 1);
-	new_chain[ft_strlen(s1) - nb_supp] = '\0';
-	return (new_chain);
+	supp_compte = (debut(s1, set) + (ft_strlen(s1) - fin(s1, set)));
+	new_chaine = malloc(ft_strlen(s1) - supp_compte + 1);
+	new_chaine[ft_strlen(s1) - supp_compte] = '\0';
+	i = 0;
+	j = debut(s1, set) - 1;
+	while (new_chaine[i])
+	{
+		new_chaine[i] = s1[j];
+		i++;
+		j++;
+	}
+	return (new_chaine);
+}
+
+int	main(void)
+{
+	printf("%s\n", ft_strtrim("   xxxtripouille x ", " x"));
 }
