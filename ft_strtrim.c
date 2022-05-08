@@ -6,7 +6,7 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:31:03 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/09 00:25:22 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/09 00:32:23 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	fin(const char *chaine, const char *base)
 		i++;
 		j = 0;
 	}
-	return (mem);
+	return (mem - 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -77,8 +77,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	new_chaine = malloc(ft_strlen(s1) - supp_compte + 1);
 	new_chaine[ft_strlen(s1) - supp_compte] = '\0';
 	i = 0;
-	j = debut(s1, set) - 1;
-	while (new_chaine[i])
+	j = debut(s1, set);
+	while (i < ft_strlen(s1) - supp_compte)
 	{
 		new_chaine[i] = s1[j];
 		i++;
@@ -89,5 +89,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main(void)
 {
-	printf("%s\n", ft_strtrim("   xxxtripouille x ", " x"));
+	printf("%s\n", ft_strtrim("tripouille x", " x"));
 }
