@@ -6,14 +6,13 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 20:38:10 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/04 16:57:50 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 00:28:49 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_compte(const char *str, int i)
+static int	ft_compte(const char *str, int i)
 {
 	int	compte;
 
@@ -26,7 +25,7 @@ int	ft_compte(const char *str, int i)
 	return (compte);
 }
 
-int	ret_sign(int signe, int nb)
+static int	ret_sign(int signe, int nb)
 {
 	if (signe == '+')
 		return (nb);
