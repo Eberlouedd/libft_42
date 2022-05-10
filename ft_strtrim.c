@@ -6,7 +6,7 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:31:03 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/09 00:32:23 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/09 22:59:24 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,23 @@ int	debut(const char *chaine, const char *base)
 	return (i);
 }
 
+void	norm(int bool, int *lum, int *memo, int *i)
+{
+	if (bool)
+	{
+		*lum = 0;
+		*memo = 0;
+	}
+	*i += 1;
+}
+
+void	ft_init(int *inter, int *i, int *j)
+{
+	*inter = 0;
+	*i = 0;
+	*j = 0;
+}
+
 int	fin(const char *chaine, const char *base)
 {
 	int	inter;
@@ -44,9 +61,7 @@ int	fin(const char *chaine, const char *base)
 	int	j;
 	int	mem;
 
-	i = 0;
-	j = 0;
-	inter = 0;
+	ft_init(&inter, &i, &j);
 	while (chaine[i])
 	{
 		while (base[j])
@@ -55,15 +70,16 @@ int	fin(const char *chaine, const char *base)
 			{
 				mem = i;
 				inter = 1;
+				break ;
 			}
+			else if (chaine[i] == base[j] && inter)
+				break ;
 			j++;
 		}
-		if (j == ft_strlen(base))
-			inter = 0;
-		i++;
+		norm(j == ft_strlen(base), &inter, &mem, &i);
 		j = 0;
 	}
-	return (mem - 1);
+	return (mem);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -72,8 +88,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*new_chaine;
 	int		i;
 	int		j;
+	int		ca_end;
 
-	supp_compte = (debut(s1, set) + (ft_strlen(s1) - fin(s1, set)));
+	if (s1[0] == '\0')
+		return (ft_strdup(""));
+	if (!s1)
+		return (NULL);
+	ca_end = fin(s1, set);
+	if (!ca_end)
+		ca_end = ft_strlen(s1);
+	supp_compte = debut(s1, set) + (ft_strlen(s1) - ca_end);
 	new_chaine = malloc(ft_strlen(s1) - supp_compte + 1);
 	new_chaine[ft_strlen(s1) - supp_compte] = '\0';
 	i = 0;
@@ -85,9 +109,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 		j++;
 	}
 	return (new_chaine);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_strtrim("tripouille x", " x"));
 }

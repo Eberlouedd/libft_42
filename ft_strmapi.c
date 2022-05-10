@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 14:49:08 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/05 22:21:45 by kyacini          ###   ########.fr       */
+/*   Created: 2022/05/10 04:19:30 by kyacini           #+#    #+#             */
+/*   Updated: 2022/05/10 04:33:18 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdlib.h> 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*new_chain;
-	size_t	i;
+	int		i;
+	char	*res;
 
 	i = 0;
-	if (start > (unsigned int)ft_strlen(s) - 1)
-		start = ft_strlen(s);
-	while (s[start + i])
-		i++;
-	if (i <= len)
-		len = i;
-	i = 0;
-	new_chain = malloc(sizeof(char) * len + 1);
-	if (!new_chain)
+	if (!f || !s)
 		return (NULL);
-	new_chain[len] = '\0';
-	while (i < len)
+	res = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!res)
+		return (NULL);
+	res[ft_strlen(s)] = '\0';
+	while (i < ft_strlen(s))
 	{
-		new_chain[i] = s[start + i];
+		res[i] = f(i, s[i]);
 		i++;
 	}
-	return (new_chain);
+	return (res);
 }

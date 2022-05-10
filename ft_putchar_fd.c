@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/02 15:20:15 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/05 15:57:14 by kyacini          ###   ########.fr       */
+/*   Created: 2022/05/10 04:46:37 by kyacini           #+#    #+#             */
+/*   Updated: 2022/05/10 04:49:19 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-char	*ft_strchr( const char *string, int searchedChar)
+void	ft_putchar_fd(char c, int fd)
 {
-	int	i;
-
-	i = 0;
-	if (searchedChar > 127)
-		return ((char *)string);
-	while (string[i])
-	{
-		if (string[i] == searchedChar)
-			return ((char *)string + i);
-		i++;
-	}
-	if (string[i] == searchedChar)
-		return ((char *)string + i);
-	return (NULL);
+	write(fd, &c, 1);
 }

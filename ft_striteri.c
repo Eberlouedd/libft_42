@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/02 15:20:15 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/05 15:57:14 by kyacini          ###   ########.fr       */
+/*   Created: 2022/05/10 04:40:10 by kyacini           #+#    #+#             */
+/*   Updated: 2022/05/10 04:43:29 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-char	*ft_strchr( const char *string, int searchedChar)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int	i;
 
 	i = 0;
-	if (searchedChar > 127)
-		return ((char *)string);
-	while (string[i])
+	if (!f || !s)
+		return ;
+	while (s[i])
 	{
-		if (string[i] == searchedChar)
-			return ((char *)string + i);
+		f(i, s + i);
 		i++;
 	}
-	if (string[i] == searchedChar)
-		return ((char *)string + i);
-	return (NULL);
 }

@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 14:49:08 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/05 22:21:45 by kyacini          ###   ########.fr       */
+/*   Created: 2022/05/10 04:50:50 by kyacini           #+#    #+#             */
+/*   Updated: 2022/05/10 05:00:35 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*new_chain;
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (start > (unsigned int)ft_strlen(s) - 1)
-		start = ft_strlen(s);
-	while (s[start + i])
-		i++;
-	if (i <= len)
-		len = i;
-	i = 0;
-	new_chain = malloc(sizeof(char) * len + 1);
-	if (!new_chain)
-		return (NULL);
-	new_chain[len] = '\0';
-	while (i < len)
+	while (s[i])
 	{
-		new_chain[i] = s[start + i];
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	return (new_chain);
 }

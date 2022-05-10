@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 14:49:08 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/05 22:21:45 by kyacini          ###   ########.fr       */
+/*   Created: 2022/05/10 04:55:26 by kyacini           #+#    #+#             */
+/*   Updated: 2022/05/10 05:01:27 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*new_chain;
-	size_t	i;
-
-	i = 0;
-	if (start > (unsigned int)ft_strlen(s) - 1)
-		start = ft_strlen(s);
-	while (s[start + i])
-		i++;
-	if (i <= len)
-		len = i;
-	i = 0;
-	new_chain = malloc(sizeof(char) * len + 1);
-	if (!new_chain)
-		return (NULL);
-	new_chain[len] = '\0';
-	while (i < len)
+	if (n == -2147483648)
 	{
-		new_chain[i] = s[start + i];
-		i++;
+		write(fd, "-2147483648", 11);
 	}
-	return (new_chain);
+	if (n < 0 && n != -2147483648)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n > 9 && n != -2147483648)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	if (n <= 9 && n != -2147483648)
+	{
+		ft_putchar_fd(n + '0', fd);
+	}
 }

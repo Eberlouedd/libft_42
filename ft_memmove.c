@@ -6,27 +6,28 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:15:43 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/03 22:26:58 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/05 18:02:27 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
 void	*ft_memmove(void *destination, const void *source, size_t size)
 {
-	size_t				i;
 	unsigned char		*new;
 	const unsigned char	*renew;
-	unsigned char		temp;
 
 	new = destination;
 	renew = source;
-	i = 0;
-	while (i < size)
+	if (!new && !renew)
+		return (NULL);
+	if (new > renew)
 	{
-		temp = renew[i];
-		new[i] = temp;
-		i++;
+		while (size--)
+			new[size] = renew[size];
 	}
+	else
+		(ft_memcpy(destination, source, size));
 	return (destination);
 }

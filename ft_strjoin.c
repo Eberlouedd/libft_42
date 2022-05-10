@@ -6,12 +6,13 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 14:53:03 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/03 15:25:41 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/05 22:05:39 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -25,7 +26,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!new_chain)
 		return (NULL);
 	new_chain[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	while (s2[j])
+	while (s2[j] || (s2[0] == '\0' && j <= ft_strlen(s2)))
 	{
 		while (i < ft_strlen(s1))
 		{
@@ -33,6 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			i++;
 		}
 		new_chain[i] = s2[j];
+		i++;
 		j++;
 	}
 	return (new_chain);

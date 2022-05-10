@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lsadd_front_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/02 15:20:15 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/05 15:57:14 by kyacini          ###   ########.fr       */
+/*   Created: 2022/05/10 05:28:41 by kyacini           #+#    #+#             */
+/*   Updated: 2022/05/10 05:35:51 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-char	*ft_strchr( const char *string, int searchedChar)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	if (searchedChar > 127)
-		return ((char *)string);
-	while (string[i])
-	{
-		if (string[i] == searchedChar)
-			return ((char *)string + i);
-		i++;
-	}
-	if (string[i] == searchedChar)
-		return ((char *)string + i);
-	return (NULL);
+	**lst->
 }
