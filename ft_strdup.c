@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyacini <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 20:41:15 by kyacini           #+#    #+#             */
-/*   Updated: 2022/03/29 17:50:40 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:37:53 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(char *src)
 {
@@ -20,9 +20,13 @@ char	*ft_strdup(char *src)
 
 	taille = 0;
 	i = 0;
+	if (!src)
+		return (NULL);
 	while (src[taille])
 		taille++;
 	retour = malloc(sizeof(char) * (taille + 1));
+	if (!retour)
+		return (NULL);
 	while (src[i])
 	{
 		retour[i] = src[i];

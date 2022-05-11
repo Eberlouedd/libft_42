@@ -6,11 +6,10 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 04:19:30 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/10 04:33:18 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:37:27 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h> 
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))

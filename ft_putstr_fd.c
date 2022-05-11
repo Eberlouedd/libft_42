@@ -6,7 +6,7 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 04:50:50 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/10 05:00:35 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:00:03 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
 	{
 		ft_putchar_fd(s[i], fd);

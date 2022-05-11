@@ -6,12 +6,10 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 14:11:54 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/10 04:32:31 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 18:36:16 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h> 
-#include <stddef.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t elementCount, size_t elementSize)

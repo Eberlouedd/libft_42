@@ -6,7 +6,7 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 22:22:12 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/04 16:15:42 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:35:53 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
 
 	i = 0;
 	j = 0;
+	if (!dest || !src)
+		return (0);
 	while (dest[i] && i < size)
 		i++;
 	if (size != i)

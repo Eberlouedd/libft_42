@@ -6,7 +6,7 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 16:59:58 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/10 20:59:09 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:59:54 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stddef.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {

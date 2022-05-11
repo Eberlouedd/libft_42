@@ -6,11 +6,11 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 04:46:37 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/10 04:49:19 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:57:34 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include  "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

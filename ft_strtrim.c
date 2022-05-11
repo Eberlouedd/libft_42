@@ -6,15 +6,13 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 15:31:03 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/09 22:59:24 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:55:09 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
 
-int	debut(const char *chaine, const char *base)
+static int	debut(const char *chaine, const char *base)
 {
 	int	i;
 	int	j;
@@ -37,7 +35,7 @@ int	debut(const char *chaine, const char *base)
 	return (i);
 }
 
-void	norm(int bool, int *lum, int *memo, int *i)
+static void	norm(int bool, int *lum, int *memo, int *i)
 {
 	if (bool)
 	{
@@ -47,14 +45,14 @@ void	norm(int bool, int *lum, int *memo, int *i)
 	*i += 1;
 }
 
-void	ft_init(int *inter, int *i, int *j)
+static void	ft_init(int *inter, int *i, int *j)
 {
 	*inter = 0;
 	*i = 0;
 	*j = 0;
 }
 
-int	fin(const char *chaine, const char *base)
+static int	fin(const char *chaine, const char *base)
 {
 	int	inter;
 	int	i;
@@ -90,23 +88,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 	int		ca_end;
 
+	if (!s1 || !set)
+		return (NULL);
 	if (s1[0] == '\0')
 		return (ft_strdup(""));
-	if (!s1)
-		return (NULL);
 	ca_end = fin(s1, set);
 	if (!ca_end)
 		ca_end = ft_strlen(s1);
 	supp_compte = debut(s1, set) + (ft_strlen(s1) - ca_end);
 	new_chaine = malloc(ft_strlen(s1) - supp_compte + 1);
+	if (!new_chaine)
+		return (NULL);
 	new_chaine[ft_strlen(s1) - supp_compte] = '\0';
 	i = 0;
 	j = debut(s1, set);
 	while (i < ft_strlen(s1) - supp_compte)
-	{
-		new_chaine[i] = s1[j];
-		i++;
-		j++;
-	}
+		new_chaine[i++] = s1[j++];
 	return (new_chaine);
 }

@@ -6,11 +6,10 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 14:49:08 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/05 22:21:45 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:55:32 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

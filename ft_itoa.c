@@ -6,13 +6,13 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 00:14:44 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/04 16:29:13 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:58:47 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int	nb_chiffre(int n)
+static int	nb_chiffre(int n)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int	nb_chiffre(int n)
 	return (i);
 }
 
-int	p_dix(int n)
+static int	p_dix(int n)
 {
 	long	result;
 	int		i;
@@ -49,24 +49,24 @@ char	*ft_itoa(int n)
 	long	sub;
 	int		signe;
 
-	i = 0;
+	i = -1;
 	sub = n;
 	signe = 1;
-	if (sub < 0)
+	if (sub < 0 && i++)
 	{
 		sub *= -1;
-		i = 1;
 		signe = 0;
 	}
 	nb_chain = malloc(nb_chiffre(sub) + 2 - signe);
+	if (!nb_chain)
+		return (NULL);
 	nb_chain[nb_chiffre(sub) + 1 - signe] = '\0';
 	if (!signe)
 		nb_chain[0] = '-';
-	while (i < nb_chiffre(n) + 1 - signe)
+	while (++i < nb_chiffre(n) + 1 - signe)
 	{
 		nb_chain[i] = (char)(sub / p_dix(nb_chiffre(n) - i - signe) + 48);
 		sub %= p_dix(nb_chiffre(n) - i - signe);
-		i++;
 	}
 	return (nb_chain);
 }

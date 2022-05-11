@@ -6,11 +6,10 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 04:55:26 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/10 05:01:27 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 20:00:32 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)

@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 21:55:46 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/11 19:37:17 by kyacini          ###   ########.fr       */
+/*   Created: 2022/05/10 19:33:27 by kyacini           #+#    #+#             */
+/*   Updated: 2022/05/10 21:40:18 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
-{
-	int	i;
+#include "libft.h"
 
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

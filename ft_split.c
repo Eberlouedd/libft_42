@@ -6,22 +6,19 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:03:43 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/10 04:16:50 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:31:15 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
 
-void	ft_init(int *i, int *j, int *c)
+static void	ft_init(int *j, int *c)
 {
-	*i = 0;
 	*j = 0;
 	*c = 0;
 }
 
-int	compte_mot(const char *str, char c)
+static int	compte_mot(const char *str, char c)
 {
 	int	compte;
 	int	i;
@@ -45,13 +42,14 @@ int	compte_mot(const char *str, char c)
 	return (compte - supp_end_start + 1);
 }
 
-void	second_allocation(const char *str, char c, char **tab)
+static void	second_allocation(const char *str, char c, char **tab)
 {
 	int	i;
 	int	j;
 	int	buff;
 
-	ft_init(&i, &j, &buff);
+	ft_init(&j, &buff);
+	i = 0;
 	if (str[0] == c)
 		i++;
 	while (1)
@@ -59,52 +57,45 @@ void	second_allocation(const char *str, char c, char **tab)
 		if ((str[i] == c || str[i] == '\0') && str[i - 1] != c && i - 1 > 0)
 		{
 			tab[j] = malloc((buff + 1) * sizeof(char));
-			tab[j][buff] = '\0';
+			if (!tab)
+				return ;
+			tab[j++][buff] = '\0';
 			buff = 0;
-			j++;
 			if (str[i] == '\0')
 				break ;
 		}
 		else if (str[i] == '\0' && str[i - 1] == c)
 			break ;
-		i++;
-		if (str[i - 1] != c)
+		if (str[++i - 1] != c)
 			buff++;
-	}
-}
-
-void	ft_norm(int bool, int *r, int *j)
-{
-	if (bool)
-	{
-		*r += 1;
-		*j = 0;
 	}
 }
 
 char	**ft_split(const char *str, char c)
 {
 	char	**tab;
-	int		i;
 	int		r;
 	int		j;
 
-	ft_init(&i, &j, &r);
+	if (!str)
+		return (NULL);
+	ft_init(&j, &r);
 	tab = malloc((compte_mot(str, c) + 1) * sizeof(char *));
+	if (!tab)
+		return (NULL);
 	tab[compte_mot(str, c)] = NULL;
 	if (compte_mot(str, c) > 0)
 		second_allocation(str, c, tab);
-	while (str[i])
+	while (*str)
 	{
-		while (str[i] != c && str[i])
+		while (*str && *str != c)
 		{
-			tab[r][j] = str[i];
-			j++;
-			ft_norm(str[i + 1] == c, &r, &j);
-			i++;
+			tab[r][j++] = *str;
+			if (*++str == c && (r++ || 1))
+				j = 0;
 		}
-		if (str[i] != '\0')
-			i++;
+		if (*str != '\0')
+			str++;
 	}
 	return (tab);
 }

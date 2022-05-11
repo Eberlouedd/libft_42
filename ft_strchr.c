@@ -6,17 +6,19 @@
 /*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 15:20:15 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/05 15:57:14 by kyacini          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:37:39 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-char	*ft_strchr( const char *string, int searchedChar)
+char	*ft_strchr(const char *string, int searchedChar)
 {
 	int	i;
 
 	i = 0;
+	if (!string)
+		return (NULL);
 	if (searchedChar > 127)
 		return ((char *)string);
 	while (string[i])
