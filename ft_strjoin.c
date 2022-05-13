@@ -26,7 +26,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!new_chain)
 		return (NULL);
 	new_chain[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	while (s2[j] || (s2[0] == '\0' && j <= ft_strlen(s2)))
+	while (j < ft_strlen(s2) || (s2[0] == '\0' && j <= ft_strlen(s2)))
 	{
 		while (i < ft_strlen(s1))
 		{
