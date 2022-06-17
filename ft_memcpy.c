@@ -14,18 +14,14 @@
 
 void	*ft_memcpy(void *destination, const void *source, size_t size)
 {
-	size_t					i;
-	unsigned char			*new;
-	const unsigned char		*renew;
+	size_t	i;
 
-	if (!destination || !source)
-		return (NULL);
-	new = destination;
-	renew = source;
+	if (!destination && !source)
+		return (0);
 	i = 0;
 	while (i < size)
 	{
-		new[i] = renew[i];
+		((unsigned char *)destination)[i] = ((unsigned char *)source)[i];
 		i++;
 	}
 	return (destination);
