@@ -42,7 +42,10 @@ SRC = ft_memset.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 		ft_itoa.c \
-		ft_strmapi.c
+		ft_strmapi.c \
+		ft_strcmp.c \
+		ft_strrejoin.c \
+		ft_strcat.c
 
 BONUS = ft_lstnew.c \
 		ft_lstadd_front.c \

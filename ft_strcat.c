@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyacini <kyacini@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kyacini <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 19:57:26 by kyacini           #+#    #+#             */
-/*   Updated: 2022/05/11 18:44:01 by kyacini          ###   ########.fr       */
+/*   Created: 2022/03/15 16:57:02 by kyacini           #+#    #+#             */
+/*   Updated: 2022/03/15 18:22:10 by kyacini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(int))
+char	*ft_strcat(char *dest, char *src)
 {
-	t_list	*buff;
+	int	d;
+	int	i;
 
-	if (!lst || !del)
-		return ;
-	while (*lst)
+	d = ft_strlen(dest);
+	i = 0;
+	while (src[i])
 	{
-		buff = (*lst)->next;
-		del((*lst)->content);
-		free(*lst);
-		*lst = buff;
+		dest[d] = src[i];
+		i++;
+		d++;
 	}
-	*lst = NULL;
+	dest[d] = '\0';
+	return (dest);
 }
